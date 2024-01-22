@@ -34,6 +34,10 @@ Description of your project.
 |-- README.md
 |-- ... (other project files)
 
+## Assignment snapshots
+<img width="931" alt="image" src="https://github.com/sherawataman/wine-dataset/assets/84449181/cda87c12-830e-48c9-bd8b-3270eac4ad5d">
+
+
 ## Scripts
 yarn start: Runs the app in development mode.
 yarn build: Builds the app for production to the build folder.
