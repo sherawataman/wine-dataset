@@ -34,13 +34,13 @@ Description of your project.
 |-- README.md
 |-- ... (other project files)
 
-##Scripts
+## Scripts
 yarn start: Runs the app in development mode.
 yarn build: Builds the app for production to the build folder.
 yarn test: Launches the test runner.
 yarn eject: Ejects the app from Create React App.
 
-##Built With
+## Built With
 React
 Yarn
 Typescript
