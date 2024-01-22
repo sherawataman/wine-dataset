@@ -1,26 +1,18 @@
+// App.tsx
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import FlavanoidsGammaTable from './components/FlavanoidsGammaTable';
 
-function App() {
+// Import data from JSON file
+import data from './Wine-Data.json';
+
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h2>Class-wise Flavonoid and Gamma Statistics</h2>
+      {/* @ts-ignore */}
+      <FlavanoidsGammaTable data={data} />
     </div>
   );
-}
+};
 
 export default App;
