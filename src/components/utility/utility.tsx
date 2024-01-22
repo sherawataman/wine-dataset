@@ -25,7 +25,6 @@ export interface DataItem {
   export const calculateClassStatistics = (data: DataItem[], property: string): Statistics => {
     const groupedData: Record<number, number[]> = {};
   
-    // Group data by "Alcohol" class
     data.forEach((item) => {
       const alcoholClass = item.Alcohol;
       if (!groupedData[alcoholClass]) {
@@ -35,7 +34,6 @@ export interface DataItem {
       groupedData[alcoholClass].push(item[property]);
     });
   
-    // Calculate mean, median, mode for each class
     const statistics: Statistics = {
       measure: property,
       mean: [],
@@ -46,11 +44,9 @@ export interface DataItem {
     Object.keys(groupedData).forEach((alcoholClass) => {
       const propertyValues = groupedData[parseInt(alcoholClass, 10)];
   
-      // Calculate mean
       const mean = propertyValues.reduce((sum, value) => sum + value, 0) / propertyValues.length;
       statistics.mean.push(mean);
   
-      // Calculate median
       const sortedValues = [...propertyValues].sort((a, b) => a - b);
       const middleIndex = Math.floor(sortedValues.length / 2);
       const median = sortedValues.length % 2 === 0
@@ -58,7 +54,6 @@ export interface DataItem {
         : sortedValues[middleIndex];
       statistics.median.push(median);
   
-      // Calculate mode
     const frequencyMap: Record<number, number> = {};
     let maxFrequency = 0;
     let mode: number | null = null;
@@ -83,12 +78,10 @@ export interface DataItem {
   };
   
   export const calculateGammaStatistics = (data: DataItem[]): Statistics => {
-    // Calculate new property "Gamma" for each point of the dataset
     data.forEach((item) => {
       item.Gamma = calculateGamma(item);
     });
   
-    // Group data by "Alcohol" class for the new property "Gamma"
     const groupedData: Record<number, number[]> = {};
   
     data.forEach((item) => {
@@ -96,10 +89,9 @@ export interface DataItem {
       if (!groupedData[alcoholClass]) {
         groupedData[alcoholClass] = [];
       }
-      groupedData[alcoholClass].push(item.Gamma!); // Gamma is guaranteed to exist due to the previous calculation
+      groupedData[alcoholClass].push(item.Gamma!); 
     });
   
-    // Calculate mean, median, mode for "Gamma" for each class
     const statistics: Statistics = {
       measure: 'Gamma',
       mean: [],
@@ -110,11 +102,9 @@ export interface DataItem {
     Object.keys(groupedData).forEach((alcoholClass) => {
       const gammaValues = groupedData[parseInt(alcoholClass, 10)];
   
-      // Calculate mean
       const mean = gammaValues.reduce((sum, value) => sum + value, 0) / gammaValues.length;
       statistics.mean.push(mean);
   
-      // Calculate median
       const sortedValues = [...gammaValues].sort((a, b) => a - b);
       const middleIndex = Math.floor(sortedValues.length / 2);
       const median = sortedValues.length % 2 === 0
@@ -122,7 +112,6 @@ export interface DataItem {
         : sortedValues[middleIndex];
       statistics.median.push(median);
   
-       // Calculate mode
     const frequencyMap: Record<number, number> = {};
     let maxFrequency = 0;
     let mode: number | null = null;

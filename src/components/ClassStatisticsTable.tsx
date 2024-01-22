@@ -1,4 +1,3 @@
-// ClassStatisticsTable.tsx
 import React from 'react';
 import '../StatisticsTable.css'
 

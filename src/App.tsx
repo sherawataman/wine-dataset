@@ -1,8 +1,6 @@
-// App.tsx
 import React from 'react';
 import FlavanoidsGammaTable from './components/FlavanoidsGammaTable';
 
-// Import data from JSON file
 import data from './Wine-Data.json';
 
 const App: React.FC = () => {
